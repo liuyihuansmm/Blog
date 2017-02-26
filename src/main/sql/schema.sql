@@ -57,4 +57,12 @@ FOREIGN KEY(toid) REFERENCES user(uid)
 )ENGINE=Innodb AUTO_INCREMENT 1 DEFAULT CHARSET=utf8 COMMENT='日志评论表';
 
 
+/**
+	2017-02-26
+	报错用户lyh无权限连接mysql，新建了lyh用户并授权
+*/
+1.create user 'lyh'@'localhost' identified by '123';
+
+2.grant all on *.* to 'lyh'@'localhost';
+
 

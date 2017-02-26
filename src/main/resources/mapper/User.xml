@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cn.lyh.dao.UserDao">
+
+    <insert id="signUp">
+        INSERT INTO user(uid,nickname,password,email,head_picture)
+        VALUE(#{uid},#{nickName},#{password},#{email},#{headPicture})
+    </insert>
+
+    <!--这里resultType不写包名是因为在spring中会扫描-->
+    <select id="signIn" resultType="User">
+        select uid,
+               innerid innerId,
+               nickname nickName,
+               password,
+               email,
+               head_picture headPicture,
+               create_time createTime
+         from user
+         where uid = #{userName} and password=#{password}
+    </select>
+</mapper>
