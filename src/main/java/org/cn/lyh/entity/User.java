@@ -22,6 +22,8 @@ public class User {
 
     private Date createTime;
 
+    public User(){}
+
     public User(String uid, String nickName, String password, String email) {
         this.uid = uid;
         this.nickName = nickName;

@@ -1,5 +1,6 @@
 package org.cn.lyh.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.cn.lyh.entity.User;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public interface UserDao {
      * @param password
      * @return
      */
-    User signIn(String userName,String password);
+    User signIn(@Param("userName") String userName,@Param("password") String password);
 
     /**
      * 添加好友

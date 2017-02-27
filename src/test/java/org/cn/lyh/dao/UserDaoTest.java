@@ -3,10 +3,15 @@ package org.cn.lyh.dao;
 import org.cn.lyh.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +22,8 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-dao.xml"})
 public class UserDaoTest {
+
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     private UserDao userDao;
@@ -29,7 +36,13 @@ public class UserDaoTest {
 
     @Test
     public void signIn() throws Exception {
-
+      User u = userDao.signIn("liuyihuanssssss","lyh1993829");
+      if(u==null){
+        log.debug("无效用户");
+      }
+      else{
+          log.info(u.toString());
+      }
     }
 
     @Test
