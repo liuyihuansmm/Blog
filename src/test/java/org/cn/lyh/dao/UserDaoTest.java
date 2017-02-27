@@ -23,20 +23,20 @@ import static org.junit.Assert.*;
 @ContextConfiguration({"classpath:spring/spring-dao.xml"})
 public class UserDaoTest {
 
-    Logger log = LoggerFactory.getLogger(this.getClass());
+    private Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     private UserDao userDao;
 
     @Test
     public void signUp() throws Exception {
-        User u = new User("liuyihuanssssss","爸爸妈妈说名字太长不太好","lyh1993829","abc@163.com");
+        User u = new User("liuyihuan","爸爸妈妈说名字太长不太好","lyh1993829","abc@163.com");
         userDao.signUp(u);
     }
 
     @Test
     public void signIn() throws Exception {
-      User u = userDao.signIn("liuyihuanssssss","lyh1993829");
+      User u = userDao.signIn("liuyihuan","lyh1993829");
       if(u==null){
         log.debug("无效用户");
       }
