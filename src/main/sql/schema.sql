@@ -14,8 +14,8 @@
 `password` varchar(100) NOT NULL COMMENT '用户密码',
 `email` varchar(100) NOT NULL COMMENT '用户邮箱',
 `head_picture` varchar(100) COMMENT '用户头像',
-`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-primary key((uid),
+`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+primary key(uid),
 KEY(innerid),
 KEY idx_user_nickname(nickname),
 KEY idx_user_createtime(create_time)
@@ -26,7 +26,7 @@ KEY idx_user_createtime(create_time)
 `hostid` varchar(100) NOT NULL COMMENT '外键:主人id',
 `friendid` varchar(100) NOT NULL COMMENT '朋友id',
 `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-primary key(（fid）,
+primary key(fid),
 KEY idx_friendship_hostid(hostid),
 KEY idx_friendship_createtime(create_time),
 FOREIGN KEY(hostid) REFERENCES user(uid)
@@ -38,7 +38,7 @@ FOREIGN KEY(hostid) REFERENCES user(uid)
 `title` varchar(50) NOT NULL COMMENT '日志标题',
 `content` blob COMMENT '日志内容',
 `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-primary key(（lid）,
+primary key(lid),
 KEY idx_log_title(title),
 KEY idx_log_createtime(create_time),
 FOREIGN KEY(hostid) REFERENCES user(uid)	

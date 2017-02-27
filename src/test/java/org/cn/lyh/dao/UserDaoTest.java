@@ -23,7 +23,7 @@ public class UserDaoTest {
 
     @Test
     public void signUp() throws Exception {
-        User u = new User("liuyihuan","爸爸妈妈说名字太长不太好","lyh1993829","abc@163.com");
+        User u = new User("liuyihuanssssss","爸爸妈妈说名字太长不太好","lyh1993829","abc@163.com");
         userDao.signUp(u);
     }
 
