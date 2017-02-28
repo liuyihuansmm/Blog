@@ -31,8 +31,8 @@ public class LogDaoTest {
     public void addLog() throws Exception {
 
          User u = new User("liuyihuan123","嘉祥瑞庭南城说好","lyh1993829","abc@163.com");
-         String title="Mybatis";
-         byte[] content ="持久框架".getBytes();
+         String title="SSM";
+         byte[] content ="互联网工资常用框架".getBytes();
 
          Log log = new Log(u,title,content);
          int index = logDao.addLog(log);

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.cn.lyh.dao.LogCommentDao">
+ <!--
+
+    <resultMap id="LogCommentMap" type="LogComment">
+        <id property="lgCommentId" column="" />
+        <association property="log" javaType="org.cn.lyh.entity.Log">
+            <id></id>
+            <result></result>
+        </association>
+        <result property="content" column=""/>
+        <association property="fromWho" javaType="org.cn.lyh.entity.User">
+
+        </association>
+        <association property="toWho" javaType="org.cn.lyh.entity.User">
+
+        </association>
+        <result property="createTime" column="" />
+    </resultMap>
+
+    <select id="getAll" resultType="LogComment">
+        select logxcomment.lgcommentid lgCommentId,
+        log.
+        from logxcomment left join log on log.lid=logxcomment.lid
+        left join user on logxcomment.fromid = user.uid
+        where logxcomment.lid=#{logId}
+        order by logxcomment.create_time DESC
+    </select>
+-->
+    <insert id="addComment">
+        insert into logxcomment(lid,content,fromid,toid)
+        VALUE (#{lid},#{content},#{fromId},#{toId})
+    </insert>
+
+
+</mapper>
