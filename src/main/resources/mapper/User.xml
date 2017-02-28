@@ -21,4 +21,19 @@
          from user
          where uid = #{userName} and password=#{password}
     </select>
+
+    <insert id="addFriend">
+        insert into friendship(hostid,friendid)
+        VALUES (#{hostId},#{friendId}),(#{friendId},#{hostId})
+    </insert>
+
+    <select id="queryByName" resultType="User">
+        select uid,
+               innerid innerId,
+               nickname nickName,
+               email,
+               head_picture headPicture
+         from user
+         where nickname like concat('%',#{nickName},'%')
+    </select>
 </mapper>

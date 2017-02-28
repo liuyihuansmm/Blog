@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.cn.lyh.dao.LogDao">
+
+    <insert id="addLog">
+        INSERT INTO log(hostid,title,content)
+        VALUE (#{owner.uid},#{title},#{content})
+    </insert>
+
+    <update id="updateLog">
+        update log set title=#{title},content=#{content}
+        where lid =#{lid}
+    </update>
+
+    <delete id="deleteLog">
+        delete from log where lid=#{lid}
+    </delete>
+
+    <select id="queryAll" resultType="Log">
+        select log.lid,
+               user.uid "owner.uid",
+               user.innerid "owner.innerId",
+               user.nickname "owner.nickName",
+               user.email "owner.email",
+               user.head_picture "owner.headPicture",
+               user.create_time "owner.createTime",
+               log.title,
+               log.content,
+               log.create_time
+        from user LEFT JOIN log on user.uid=log.hostid
+        where user.uid=#{hostid}
+    </select>
+
+    <select id="queryById" resultType="Log">
+        select log.lid,
+               user.uid "owner.uid",
+               user.innerid "owner.innerId",
+               user.nickname "owner.nickName",
+               user.email "owner.email",
+               user.head_picture "owner.headPicture",
+               user.create_time "owner.createTime",
+               log.title,
+               log.content,
+               log.create_time
+        from log LEFT JOIN user on user.uid=log.hostid
+        where log.lid=#{lid}
+    </select>
+</mapper>
+        

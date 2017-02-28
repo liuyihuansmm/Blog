@@ -7,8 +7,9 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-<link rel="shortcut icon" href="<%=request.getContextPath()%>/images/icon.png">
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<script src="${ctx}/js/jquery-1.11.1.min.js"></script>
+<script src="${ctx}/js/bootstrap.js"></script>
+<link rel="stylesheet" href="${ctx}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${ctx}/css/style.css">
+<link rel="shortcut icon" href="${ctx}/images/icon.png">

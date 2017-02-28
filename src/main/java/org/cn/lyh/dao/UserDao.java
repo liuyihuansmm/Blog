@@ -27,15 +27,16 @@ public interface UserDao {
 
     /**
      * 添加好友
-     * @param user
+     * @param hostId
+     * @param friendId
      * @return
      */
-    List<User> addFriends(User user);
+    int addFriend(@Param("hostId") String hostId,@Param("friendId") String friendId);
 
     /**
-     * 查找用户
+     * 根据昵称查找用户
      * @param name
      * @return
      */
-    List<User> queryByName(String name);
+    List<User> queryByName(@Param("nickName") String name);
 }

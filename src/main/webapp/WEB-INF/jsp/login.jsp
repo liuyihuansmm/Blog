@@ -40,7 +40,7 @@
                         <p>Enter your username and password to log on:</p>
                     </div>
                     <div class="form-top-right">
-                        <image src="<%=request.getContextPath()%>/images/login.png" alt="Welcome"/>
+                        <image src="${ctx}/images/login.png" alt="Welcome"/>
                     </div>
                 </div>
                 <div class="form-bottom">
@@ -57,7 +57,9 @@
                         </div>
                         <div class="form-group">
                             <div class="checkbox">
-                                <input type="checkbox">记住我
+                                <label>
+                                    <input type="checkbox" id="form-remember">记住我
+                                </label>
                             </div>
                         </div>
                         <div class="form-group">

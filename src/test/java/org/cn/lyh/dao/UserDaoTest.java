@@ -30,7 +30,7 @@ public class UserDaoTest {
 
     @Test
     public void signUp() throws Exception {
-        User u = new User("liuyihuan","爸爸妈妈说名字太长不太好","lyh1993829","abc@163.com");
+        User u = new User("liuyihuan123","嘉祥瑞庭南城说好","lyh1993829","abc@163.com");
         userDao.signUp(u);
     }
 
@@ -46,13 +46,24 @@ public class UserDaoTest {
     }
 
     @Test
-    public void addFriends() throws Exception {
-
+    public void addFriend() throws Exception {
+        //liuyihuan123,liuyihuanssssss
+        String host="liuyihuan123";
+        String friend="liuyihuanssssss";
+        int result = userDao.addFriend(host,friend);
+        log.debug(""+result);
     }
 
     @Test
     public void queryByName() throws Exception {
-
+        List<User> listUser = userDao.queryByName("好");
+        if(listUser.size()==0){
+            log.debug("未查到用户");
+        }else{
+            for(User u: listUser){
+                log.info(u.toString());
+            }
+        }
     }
 
 }
