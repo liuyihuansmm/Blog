@@ -16,13 +16,11 @@ public class LogComment {
 
     private User fromWho;
 
-    private User toWho=log.getOwner();
+    private User toWho;
 
     private Date createTime;
 
     public LogComment(){}
-
-
 
     public int getLgCommentId() {
         return lgCommentId;

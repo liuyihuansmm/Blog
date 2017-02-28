@@ -4,33 +4,51 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.cn.lyh.dao.LogCommentDao">
- <!--
+    <!--
 
-    <resultMap id="LogCommentMap" type="LogComment">
-        <id property="lgCommentId" column="" />
-        <association property="log" javaType="org.cn.lyh.entity.Log">
-            <id></id>
-            <result></result>
-        </association>
-        <result property="content" column=""/>
-        <association property="fromWho" javaType="org.cn.lyh.entity.User">
+       <resultMap id="LogCommentMap" type="LogComment">
+           <id property="lgCommentId" column="" />
+           <association property="log" javaType="org.cn.lyh.entity.Log">
+               <id></id>
+               <result></result>
+           </association>
+           <result property="content" column=""/>
+           <association property="fromWho" javaType="org.cn.lyh.entity.User">
 
-        </association>
-        <association property="toWho" javaType="org.cn.lyh.entity.User">
+           </association>
+           <association property="toWho" javaType="org.cn.lyh.entity.User">
 
-        </association>
-        <result property="createTime" column="" />
-    </resultMap>
-
+           </association>
+           <result property="createTime" column="" />
+       </resultMap>
+   -->
     <select id="getAll" resultType="LogComment">
-        select logxcomment.lgcommentid lgCommentId,
-        log.
-        from logxcomment left join log on log.lid=logxcomment.lid
-        left join user on logxcomment.fromid = user.uid
-        where logxcomment.lid=#{logId}
-        order by logxcomment.create_time DESC
+        SELECT
+
+          log.lid "log.lid",
+          log.title "log.title",
+          logxcomment.lgcommentid lgCommentId,
+          logxcomment.content content,
+          logxcomment.create_time createTime,
+          fromWho.uid "fromWho.uid",
+          fromWho.innerid "fromWho.innerId",
+          fromWho.nickname "fromWho.nickName",
+          toWho.uid "toWho.uid",
+          toWho.innerid "toWho.innerId",
+          toWho.nickname "toWho.nickName"
+        FROM
+          log
+        LEFT JOIN
+          logxcomment ON logxcomment.lid = log.lid
+        LEFT JOIN
+          user fromWho ON logxcomment.fromid = fromWho.uid
+        LEFT JOIN
+          user toWho ON logxcomment.toid = toWho.uid
+        WHERE
+          log.lid = #{logId}
+        order by logxcomment.create_time desc;
     </select>
--->
+
     <insert id="addComment">
         insert into logxcomment(lid,content,fromid,toid)
         VALUE (#{lid},#{content},#{fromId},#{toId})
