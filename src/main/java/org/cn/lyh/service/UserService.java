@@ -1,6 +1,10 @@
 package org.cn.lyh.service;
 
+import org.cn.lyh.dto.RegistUser;
+import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.User;
+
+import java.util.List;
 
 /**
  * Created by LYH on 2017/3/1.
@@ -9,10 +13,41 @@ import org.cn.lyh.entity.User;
  */
 public interface UserService {
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     * 登录
+     *
+     */
+    User signIn(String username, String password);
 
-    boolean signIn(String username, String password);
+    /**
+     *
+     * @param username
+     * @param nickName
+     * @param password
+     * @param email
+     * @param headPicture
+     * @return
+     * 注册
+     */
+    RegistUser signUp(String username, String nickName, String password, String email, String headPicture);
 
-    User signUp(String username,String nickName,String password,String email,String headPicture);
+    /**
+     *
+     * @param nickName
+     * @return
+     * 查询用户
+     */
+    List<User> search(String nickName);
 
 
+    List<Log> queryAllLog(String hostId);
+
+    //下面两个接口，因为dao层未写好,暂时不考虑
+    boolean addFriend(String nickName);
+
+    List<User> listFriends();
 }

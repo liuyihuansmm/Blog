@@ -62,7 +62,7 @@
 
 <div class="container">
     <div class="blog-header">
-        <h1 class="blog-title">刘一寰的博客</h1>
+        <h1 class="blog-title">${currentUser.nickName}的博客</h1>
         <p class="lead blog-description">Stay hungry,Stay foolish</p>
     </div>
     <div class="row">
@@ -73,16 +73,16 @@
                     <div class="row">
                         <div class="col-xs-12 col-xs-12">
                             <a href="#" class="thumbnail">
-                                <img src="http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=6a9e2665d42a283443f33e0f6e85e5dc/b151f8198618367ad07349a52e738bd4b21ce5cb.jpg" alt="...">
+                                头像
                             </a>
                         </div>
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <span class="label label-default">昵称</span>&nbsp;&nbsp;孙孙小二梅
+                            <span class="label label-default">昵称</span>&nbsp;&nbsp;${currentUser.nickName}
                         </li>
                         <li class="list-group-item">
-                            <span class="label label-default">邮箱</span>&nbsp;&nbsp;smm@163.com
+                            <span class="label label-default">邮箱</span>&nbsp;&nbsp;${currentUser.email}
                         </li>
                     </ul>
                 </div>

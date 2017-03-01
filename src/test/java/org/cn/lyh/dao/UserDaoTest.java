@@ -30,8 +30,7 @@ public class UserDaoTest {
 
     @Test
     public void signUp() throws Exception {
-        User u = new User("liuyihuan123","嘉祥瑞庭南城说好","lyh1993829","abc@163.com");
-        userDao.signUp(u);
+        userDao.signUp("liuyihuan123","嘉祥瑞庭南城说好","lyh1993829","abc@163.com",null);
     }
 
     @Test

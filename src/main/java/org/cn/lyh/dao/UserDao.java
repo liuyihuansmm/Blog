@@ -11,11 +11,17 @@ import java.util.List;
 public interface UserDao {
 
     /**
-     * 用户注册
-     * @param user
+     *
+     * @param username
+     * @param nickName
+     * @param password
+     * @param email
+     * @param headPicture
      * @return
      */
-    int signUp(User user);
+    int signUp(@Param("uid") String username, @Param("nickName") String nickName,
+               @Param("password") String password, @Param("email") String email,
+               @Param("headPicture") String headPicture);
 
     /**
      * 用户登录

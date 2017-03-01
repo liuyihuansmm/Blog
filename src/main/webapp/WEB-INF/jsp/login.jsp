@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form class="login-form">
+                    <form class="login-form" action="${ctx}/user" method="post">
                         <div class="form-group">
                             <label class="sr-only" for="form-username">Username</label>
                             <input type="text" name="username" class="form-username form-control" id="form-username"
