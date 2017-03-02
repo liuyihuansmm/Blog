@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
     public RegistUser signUp(String username, String nickName, String password, String email, String headPicture) {
         int insertCount = userDao.signUp(username,nickName,password,email,headPicture);
         if (insertCount != 0){
-            logger.debug("用户已注册");
             User user = userDao.signIn(username,password);
             return  new RegistUser(true,user);
         }

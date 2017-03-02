@@ -74,6 +74,46 @@
         </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
+                <form class="login-form" action="${ctx}/regist" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">用户注册</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="form-username">Username</label>
+                                <input type="text" name="regusername" class="form-username form-control" id="reg-username"
+                                       placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-password">Password</label>
+                                <input type="password" name="regpassword" placeholder="Password..."
+                                       class="form-password form-control" id="reg-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-username">NickName</label>
+                                <input type="text" name="regnickname" placeholder="NickName..."
+                                       class="form-email form-control" id="reg-nickname">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-username">Email</label>
+                                <input type="email" name="regemail" placeholder="Email..."
+                                       class="form-email form-control" id="reg-email">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">注册</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -84,12 +124,13 @@
                         ...
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">注册</button>
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">注册</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
                     </div>
                 </div>
             </div>
         </div>
+        -->
     </div>
 </div>
 </body>
