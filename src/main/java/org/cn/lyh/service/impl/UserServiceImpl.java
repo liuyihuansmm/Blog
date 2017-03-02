@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
     private LogDao logDao;
 
     public User signIn(String username, String password) {
-
         User user = userDao.signIn(username,password);
         if(user == null){
             logger.debug("用户名或密码无效");
@@ -45,7 +44,6 @@ public class UserServiceImpl implements UserService {
         }
         logger.debug("用户已注册!");
         return new RegistUser(false,null);
-
     }
 
     public List<User> search(String nickName) {

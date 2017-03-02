@@ -1,6 +1,8 @@
 package org.cn.lyh.web;
 
+import org.apache.ibatis.jdbc.Null;
 import org.cn.lyh.dto.RegistUser;
+import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.User;
 import org.cn.lyh.service.UserService;
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by lyh on 17-3-1.
@@ -31,7 +34,9 @@ public class UserController {
 
         if (user!=null){
             httpSession.setAttribute("currentUser",user);
+            List<Log> logList = userService.queryAllLog(user.getUid());
             model.addAttribute("currentUser",user);
+            model.addAttribute("logList",logList);
             return "test";
         }
         return "redirect:/login";

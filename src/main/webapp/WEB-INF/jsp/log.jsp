@@ -6,24 +6,27 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="common/tag.jsp"%>
+<%@ include file="common/tag.jsp" %>
+<%@ taglib prefix="my" uri="/WEB-INF/tld/myTag.tld" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>我的老丈银</h1>
-        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Read more</a></p>
-    </div>
-    <div class="jumbotron">
-        <h1>Hadoop集成策略</h1>
-        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Read more</a></p>
-    </div>
-</div>
+<c:forEach var="log" items="${logList}">
+    <c:choose>
+        <c:when test="${empty log.lid}">
+            <h1>你还未发表任何文章哟~</h1>
+        </c:when>
+        <c:otherwise>
+            <div class="jumbotron">
+                <h1>${log.title}</h1>
+                <p>${log.content}</p>
+                <!--<p><my:ByteToString content="${log.content}"/></p>-->
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Read more</a></p>
+            </div>
+        </c:otherwise>
+    </c:choose>
+</c:forEach>
 </body>
 </html>

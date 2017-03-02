@@ -5,7 +5,7 @@
 <mapper namespace="org.cn.lyh.dao.UserDao">
 
     <insert id="signUp">
-        INSERT INTO user(uid,nickname,password,email,head_picture)
+        INSERT ignore INTO user(uid,nickname,password,email,head_picture)
         VALUE(#{uid},#{nickName},#{password},#{email},#{headPicture})
     </insert>
 
