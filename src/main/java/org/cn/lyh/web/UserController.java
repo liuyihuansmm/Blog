@@ -89,7 +89,7 @@ public class UserController {
      */
     @RequestMapping(value = "/log/publish")
     public String publishLogUI(){
-        return "logEdit";
+        return "test";
     }
 
     @RequestMapping(value = "/log/publish/do",method = RequestMethod.POST)

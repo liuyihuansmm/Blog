@@ -15,12 +15,13 @@
     <div class="container">
         <%@include file="head.jsp"%>
         <div class="row">
-            <%@include file="navigate.jsp"%>
+            <div class="col-md-3">
+                <%@include file="navigate.jsp"%>
+            </div>
             <div class="col-md-9">
-                <%@include file="log.jsp"%>
+                <%@include file="logEdit.jsp"%>
             </div>
         </div>
-
     </div>
 </body>
 </html>

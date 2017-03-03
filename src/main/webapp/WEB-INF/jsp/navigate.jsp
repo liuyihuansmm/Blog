@@ -12,7 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-<div class="col-md-3">
     <div class="panel panel-default">
         <div class="panel-heading">个人资料</div>
         <div class="panel-body">
@@ -48,6 +47,5 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

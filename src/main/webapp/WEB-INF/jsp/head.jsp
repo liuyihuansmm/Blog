@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>博客系统</title>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse">

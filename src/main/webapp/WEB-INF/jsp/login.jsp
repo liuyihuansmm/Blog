@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>登陆</title>
+    <link rel="stylesheet" href="${ctx}/resources/css/style.css">
     <!-- Bootstrap core CSS
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
@@ -40,7 +41,7 @@
                         <p>Enter your username and password to log on:</p>
                     </div>
                     <div class="form-top-right">
-                        <image src="${ctx}/images/login.png" alt="Welcome"/>
+                        <image src="${ctx}/resources/images/login.png" alt="Welcome"/>
                     </div>
                 </div>
                 <div class="form-bottom">
