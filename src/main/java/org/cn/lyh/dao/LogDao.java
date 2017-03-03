@@ -12,10 +12,12 @@ public interface LogDao {
 
     /**
      * 发表日志
-     * @param log
+     * @param hostId
+     * @param title
+     * @param content
      * @return
      */
-    int addLog(Log log);
+    int addLog(@Param("hostId") String hostId,@Param("title") String title,@Param("content") byte[] content);
 
     /**
      * 修改日志

@@ -34,7 +34,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页
                         <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>日志</a></li>
+                    <li><a href="${ctx}/logs"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>日志</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>说说</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-picture " aria-hidden="true"></span>相册</a></li>
                     <li class="dropdown">

@@ -21,8 +21,7 @@
         <c:otherwise>
             <div class="jumbotron">
                 <h1>${log.title}</h1>
-                <p>${log.content}</p>
-                <!--<p><my:ByteToString content="${log.content}"/></p>-->
+                <p><my:ByteToString content="${log.content}"/></p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">Read more</a></p>
             </div>
         </c:otherwise>

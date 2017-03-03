@@ -35,7 +35,7 @@ public class LogDaoTest {
          byte[] content ="互联网工资常用框架".getBytes();
 
          Log log = new Log(u,title,content);
-         int index = logDao.addLog(log);
+         int index = logDao.addLog("liuyihuan123","SSM",content);
          logger.debug(index+"");
     }
 

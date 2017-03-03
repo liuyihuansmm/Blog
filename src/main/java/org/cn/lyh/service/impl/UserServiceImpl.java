@@ -27,6 +27,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private LogDao logDao;
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     * 用户登录校验
+     */
     public User signIn(String username, String password) {
         User user = userDao.signIn(username,password);
         if(user == null){
@@ -36,6 +43,16 @@ public class UserServiceImpl implements UserService {
         return  user;
     }
 
+    /**
+     *
+     * @param username
+     * @param nickName
+     * @param password
+     * @param email
+     * @param headPicture
+     * @return
+     * 用户注册
+     */
     public RegistUser signUp(String username, String nickName, String password, String email, String headPicture) {
         int insertCount = userDao.signUp(username,nickName,password,email,headPicture);
         if (insertCount != 0){
@@ -55,10 +72,34 @@ public class UserServiceImpl implements UserService {
         return  userList;
     }
 
+    /**
+     *
+     * @param hostId
+     * @return
+     * 返回hostId用户所有日志列表
+     */
     public List<Log> queryAllLog(String hostId) {
         List<Log> logList = logDao.queryAll(hostId);
         return logList;
     }
+
+    /**
+     *
+     * @param hostId
+     * @param title
+     * @param content
+     * @return
+     * 用户发表日志
+     */
+    public boolean  publishLog(String hostId, String title, byte[] content) {
+        int insertCount = logDao.addLog(hostId,title,content);
+        if(insertCount>0){
+            return true;
+        }
+        return  false;
+    }
+
+
 
     //下面两个接口，因为dao层未写好,暂时不考虑
     public boolean addFriend(String nickName) {
