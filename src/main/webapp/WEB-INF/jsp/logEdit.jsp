@@ -6,19 +6,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="common/tag.jsp" %>
+<%@include file="common/tag.jsp"%>
+
 <html>
 <head>
 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>UMEDITOR 完整demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="/resources/ue/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="/resources/ue/third-party/jquery.min.js"></script>
-    <script type="text/javascript" src="/resources/ue/third-party/template.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/resources/ue/umeditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/resources/ue/umeditor.min.js"></script>
-    <script type="text/javascript" src="/resources/ue/lang/zh-cn/zh-cn.js"></script>
+    <link href="${ctx}/resources/ue/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="${ctx}/resources/ue/third-party/jquery.min.js"></script>
+    <script type="text/javascript" src="${ctx}/resources/ue/third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${ctx}/resources/ue/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${ctx}/resources/ue/umeditor.min.js"></script>
+    <script type="text/javascript" src="${ctx}/resources/ue/lang/zh-cn/zh-cn.js"></script>
     <style type="text/css">
         h1{
             font-family: "微软雅黑";
@@ -120,11 +121,13 @@
     </style>
 </head>
 <body>
-<h1>发表日志</h1>
+<h4>文章标题</h4>
+<input type="text" name="title" style="width: 400px;"/>
+<h4>文章内容</h4>
 
 <!--style给定宽度可以影响编辑器的最终宽度-->
-<script type="text/plain" id="myEditor" style="width:300px;height:240px;">
-    <p>在这里输入内容..</p>
+<script type="text/plain" id="myEditor" class="container-fluid" style="width:1200px;height:300px;">
+    <p></p>
 </script>
 
 

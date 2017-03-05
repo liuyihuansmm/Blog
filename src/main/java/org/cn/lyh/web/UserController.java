@@ -48,7 +48,7 @@ public class UserController {
             model.addAttribute("currentUser",user);
             model.addAttribute("isLoged",true);
             model.addAttribute("logList",logList);
-            return "test";
+            return "home";
         }
         return "redirect:/login";
     }
@@ -72,7 +72,7 @@ public class UserController {
        }
        model.addAttribute("currentUser",user.getUser());
        model.addAttribute("isLoged",true);
-       return "test";
+       return "home";
     }
 
     @RequestMapping(value = "/logs",method = RequestMethod.GET)
@@ -80,7 +80,7 @@ public class UserController {
         User u = (User) session.getAttribute("currentUser");
         List<Log> logList = userService.queryAllLog(u.getUid());
         model.addAttribute("logList",logList);
-        return "test";
+        return "home";
     }
 
     /**

@@ -1,16 +1,17 @@
-<!DOCTYPE HTML>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file=""%>
 <html>
 <head>
 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>UMEDITOR 完整demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="third-party/jquery.min.js"></script>
-    <script type="text/javascript" src="third-party/template.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="umeditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="umeditor.min.js"></script>
-    <script type="text/javascript" src="lang/zh-cn/zh-cn.js"></script>
+    <link href="/resources/ue/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/resources/ue/third-party/jquery.min.js"></script>
+    <script type="text/javascript" src="/resources/ue/third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/resources/ue/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/resources/ue/umeditor.min.js"></script>
+    <script type="text/javascript" src="/resources/ue/lang/zh-cn/zh-cn.js"></script>
     <style type="text/css">
         h1{
             font-family: "微软雅黑";

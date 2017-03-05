@@ -70,4 +70,5 @@
 <div class="blog-header">
     <h1 class="blog-title">${currentUser.nickName}的博客</h1>
     <p class="lead blog-description">Stay hungry,Stay foolish</p>
+    <hr>
 </div>

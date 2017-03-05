@@ -14,14 +14,7 @@
 <body>
     <div class="container">
         <%@include file="head.jsp"%>
-        <div class="row">
-            <div class="col-md-3">
-                <%@include file="navigate.jsp"%>
-            </div>
-            <div class="col-md-9">
-                <%@include file="logEdit.jsp"%>
-            </div>
-        </div>
+        <%@include file="logEdit.jsp"%>
     </div>
 </body>
 </html>
