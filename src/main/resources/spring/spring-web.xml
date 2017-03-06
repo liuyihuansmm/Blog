@@ -10,6 +10,18 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+
+        <mvc:interceptors>
+            <mvc:interceptor>
+                <mvc:mapping path="/**"/>
+                <mvc:exclude-mapping path="/login"></mvc:exclude-mapping>
+                <mvc:exclude-mapping path="/"></mvc:exclude-mapping>
+                <mvc:exclude-mapping path="/user"></mvc:exclude-mapping>
+                <mvc:exclude-mapping path="/regist"></mvc:exclude-mapping>
+                <bean class="org.cn.lyh.filter.interceptor.CheckLogInterceptor"/>
+            </mvc:interceptor>
+        </mvc:interceptors>
+
         <mvc:annotation-driven />
         <!--
         <mvc:resources mapping="/css/**" location="/resources/css/" />

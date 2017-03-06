@@ -7,6 +7,10 @@
 
 
   <display-name>Archetype Created Web Application</display-name>
+  <session-config>
+    <!--10minSession失效-->
+    <session-timeout>10</session-timeout>
+  </session-config>
 
   <filter>
     <filter-name>CharacterEncoding</filter-name>
