@@ -3,6 +3,7 @@ package org.cn.lyh.web;
 import org.cn.lyh.dto.RegistUser;
 import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.User;
+import org.cn.lyh.service.LogService;
 import org.cn.lyh.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +31,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private LogService logService;
     /**
      *
      * @param username
@@ -46,7 +49,7 @@ public class UserController {
 
         if (user!=null){
             httpSession.setAttribute("currentUser",user);
-            List<Log> logList = userService.queryAllLog(user.getUid());
+            List<Log> logList = logService.queryAllLog(user.getUid());
             model.addAttribute("currentUser",user);
             model.addAttribute("isLoged",true);
             model.addAttribute("logList",logList);
@@ -77,6 +80,7 @@ public class UserController {
        return "home";
     }
 
+    /*
     @RequestMapping(value = "/logs",method = RequestMethod.GET)
     public String logsUI(HttpSession session,Model model){
         User u = (User) session.getAttribute("currentUser");
@@ -88,7 +92,7 @@ public class UserController {
     /**
      * 发表日志UI
      * @return
-     */
+
     @RequestMapping(value = "/log/publish")
     public String publishLogUI(){
         return "test";
@@ -111,5 +115,5 @@ public class UserController {
         }
         return "redirect:/logs";
     }
-
+       */
 }

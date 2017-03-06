@@ -43,13 +43,18 @@ public interface UserService {
      */
     List<User> search(String nickName);
 
+    //下面两个接口，因为dao层未写好,暂时不考虑
+    boolean addFriend(String nickName);
+
+    List<User> listFriends();
+
     /**
      *
      * @param hostId
      * @return
      * 查询hostId用户所有的日志
      */
-    List<Log> queryAllLog(String hostId);
+    //List<Log> queryAllLog(String hostId);
 
     /**
      *
@@ -59,10 +64,7 @@ public interface UserService {
      * @return
      * 发表日志
      */
-    boolean publishLog(String hostId,String title,byte[] content);
+    //boolean publishLog(String hostId,String title,byte[] content);
 
-    //下面两个接口，因为dao层未写好,暂时不考虑
-    boolean addFriend(String nickName);
 
-    List<User> listFriends();
 }

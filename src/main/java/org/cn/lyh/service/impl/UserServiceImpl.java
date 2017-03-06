@@ -72,12 +72,20 @@ public class UserServiceImpl implements UserService {
         return  userList;
     }
 
+    //下面两个接口，因为dao层未写好,暂时不考虑
+    public boolean addFriend(String nickName) {
+        return false;
+    }
+
+    public List<User> listFriends() {
+        return null;
+    }
     /**
      *
      * @param hostId
      * @return
      * 返回hostId用户所有日志列表
-     */
+
     public List<Log> queryAllLog(String hostId) {
         List<Log> logList = logDao.queryAll(hostId);
         return logList;
@@ -90,7 +98,7 @@ public class UserServiceImpl implements UserService {
      * @param content
      * @return
      * 用户发表日志
-     */
+
     public boolean  publishLog(String hostId, String title, byte[] content) {
         int insertCount = logDao.addLog(hostId,title,content);
         if(insertCount>0){
@@ -98,16 +106,9 @@ public class UserServiceImpl implements UserService {
         }
         return  false;
     }
+     */
 
 
 
-    //下面两个接口，因为dao层未写好,暂时不考虑
-    public boolean addFriend(String nickName) {
-        return false;
-    }
-
-    public List<User> listFriends() {
-        return null;
-    }
 
 }
