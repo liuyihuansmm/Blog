@@ -13,6 +13,11 @@
     <title>Title</title>
 </head>
 <body>
+<div class="row">
+    <div class="col-md-2 col-md-offset-10">
+        <button id="pubLog" type="button" class="btn btn-primary">写新文章</button>
+    </div>
+</div>
 <c:forEach var="log" items="${logList}">
     <c:choose>
         <c:when test="${empty log.lid}">
@@ -27,5 +32,11 @@
         </c:otherwise>
     </c:choose>
 </c:forEach>
+<script type="text/javascript" src="${ctx}/resources/js/logJS.js"></script>
+<script>
+    $(function () {
+        logJS.publishUI();
+    });
+</script>
 </body>
 </html>

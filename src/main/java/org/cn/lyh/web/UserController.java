@@ -11,9 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -93,9 +95,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "/log/publish/do",method = RequestMethod.POST)
-    public String publishLog(String title, byte[] content,HttpSession session){
+    public String publishLog(String title, @RequestParam("content") String strContent, HttpSession session){
         User currentUser = (User)session.getAttribute("currentUser");
         String hostId = currentUser.getUid();
+        byte[] content = new byte[0];
+        try {
+            content = strContent.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         boolean pubFlag = userService.publishLog(hostId,title,content);
         if (!pubFlag) {
             logger.debug("日志发表失败!");

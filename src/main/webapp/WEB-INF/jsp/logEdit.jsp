@@ -121,15 +121,17 @@
     </style>
 </head>
 <body>
+<form id="lgp" action="${ctx}/log/publish/do" method="post">
 <h4>文章标题</h4>
-<input type="text" name="title" style="width: 400px;"/>
+<input type="text" id="title" name="title" style="width: 400px;"/>
 <h4>文章内容</h4>
-
+<input type="hidden" id="content" name="content"/>
 <!--style给定宽度可以影响编辑器的最终宽度-->
 <script type="text/plain" id="myEditor" class="container-fluid" style="width:1200px;height:300px;">
     <p></p>
 </script>
-
+<button type="button" id="sbutton" class="btn btn-success">发表</button>
+</form>
 
 <div class="clear"></div>
 <div>
@@ -138,9 +140,11 @@
 <script type="text/javascript">
     //实例化编辑器
     var um = UM.getEditor('myEditor');
+    <!--
     um.addListener('blur',function(){
         $('#focush2').html('编辑器失去焦点了')
     });
+    -->
     um.addListener('focus',function(){
         $('#focush2').html('')
     });
@@ -240,6 +244,11 @@
         }
     }
 </script>
-
+<script type="text/javascript" src="${ctx}/resources/js/logJS.js"></script>
+<script>
+    $(function () {
+        logJS.publish();
+    });
+</script>
 </body>
 </html>
