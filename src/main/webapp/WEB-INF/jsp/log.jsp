@@ -27,7 +27,7 @@
             <div class="jumbotron">
                 <h2>${log.title}</h2>
                 <p><my:ByteToString content="${log.content}"/></p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Read more</a></p>
+                <p><a class="btn btn-primary btn-lg" href="${ctx}/log/${log.lid}" role="button">Read more</a></p>
             </div>
         </c:otherwise>
     </c:choose>

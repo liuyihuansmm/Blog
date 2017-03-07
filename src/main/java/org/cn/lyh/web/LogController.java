@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,5 +61,19 @@ public class LogController {
             return "redirect:/logs";//TODO
         }
         return "redirect:/logs";
+    }
+
+    /**
+     *
+     * @param lid
+     * @param model
+     * @return
+     * 点击Readmore按钮后
+     */
+    @RequestMapping(value = "/log/{lid}",method = RequestMethod.GET)
+    public String logDetail(@PathVariable("lid") Integer lid,Model model){
+        Log log = logService.queryById(lid);
+        model.addAttribute("log",log);
+        return "logDetail";
     }
 }

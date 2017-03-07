@@ -4,9 +4,6 @@
 var logJS={
 
     URL:{
-        publish_do_URL:function () {
-            return "/Blog/log/publish/do";
-        },
         publishUI:function () {
             return "/Blog/log/publish";
         }
@@ -17,9 +14,10 @@ var logJS={
         $("#sbutton").click(function () {
             var title = $("#title").val();
             console.log(title);
-            var content = UM.getEditor('myEditor').getContentTxt();
+            var content = UM.getEditor("myEditor").getContent();
             console.log(content);
             $("#content").val(content);
+            $("#lgp").submit();
             //异步提交不会刷新页面
             //$.post(logJS.URL.publishURL(),{title:title,content:content});
             /*
@@ -33,7 +31,6 @@ var logJS={
                 }
             });
             */
-            $("#lgp").submit();
         });
     },
 

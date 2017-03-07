@@ -26,4 +26,6 @@ public interface LogService {
      * 发表日志
      */
     boolean publishLog(String hostId,String title,byte[] content);
+
+    Log queryById(Integer lid);
 }

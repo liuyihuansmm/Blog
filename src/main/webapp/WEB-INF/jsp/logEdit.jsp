@@ -6,8 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="common/tag.jsp"%>
-
+<%--@include file="common/tag.jsp" --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <html>
 <head>
 
@@ -127,7 +128,7 @@
 <h4>文章内容</h4>
 <input type="hidden" id="content" name="content"/>
 <!--style给定宽度可以影响编辑器的最终宽度-->
-<script type="text/plain" id="myEditor" class="container-fluid" style="width:1200px;height:300px;">
+<script type="text/plain" id="myEditor" class="container-fluid" style="width:1000px;height:300px;">
     <p></p>
 </script>
 <button type="button" id="sbutton" class="btn btn-success">发表</button>
