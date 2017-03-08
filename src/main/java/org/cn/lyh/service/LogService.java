@@ -27,5 +27,20 @@ public interface LogService {
      */
     boolean publishLog(String hostId,String title,byte[] content);
 
+    /**
+     *
+     * @param lid
+     * @return
+     * 查询日志
+     */
     Log queryById(Integer lid);
+
+    /**
+     *
+     * @param lid
+     * @return
+     * 删除日志
+     */
+    int deleteLog(Integer lid);
+
 }

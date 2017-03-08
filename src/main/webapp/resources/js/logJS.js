@@ -4,10 +4,18 @@
 var logJS={
 
     URL:{
+
+        logs:function () {
+            return "/Blog/logs";
+        },
+
         publishUI:function () {
             return "/Blog/log/publish";
-        }
+        },
 
+        deleteUrl:function (lid) {
+            return "/Blog/log/"+lid;
+        }
     },
 
     publish:function () {
@@ -40,6 +48,21 @@ var logJS={
     publishUI:function () {
         $("#pubLog").click(function () {
             location.href=logJS.URL.publishUI();
+        });
+    },
+    
+    del:function (lid) {
+        $("#delLgBtn").click(function () {
+            //console.log(lid);
+            $.ajax({
+                type:'DELETE',
+                url:logJS.URL.deleteUrl(lid),
+                data:{"lid":lid},
+                success:function () {
+                    location.href = logJS.URL.logs();
+                }
+            });
+
         });
     }
 };

@@ -31,7 +31,7 @@
                log.content,
                log.create_time
         from user LEFT JOIN log on user.uid=log.hostid
-        where user.uid=#{hostid}
+        where user.uid=#{hostid} order by log.create_time DESC
     </select>
 
     <select id="queryById" resultType="Log">

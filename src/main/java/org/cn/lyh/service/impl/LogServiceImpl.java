@@ -37,4 +37,8 @@ public class LogServiceImpl implements LogService {
     public Log queryById(Integer lid) {
         return logDao.queryById(lid);
     }
+
+    public int deleteLog(Integer lid) {
+        return logDao.deleteLog(lid);
+    }
 }
