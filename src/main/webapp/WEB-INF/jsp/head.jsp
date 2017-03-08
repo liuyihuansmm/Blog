@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="common/tag.jsp"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -50,7 +49,7 @@
                             <li><a href="#"><span class="glyphicon glyphicon-earphone"
                                                   aria-hidden="true"></span>联系方式</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>安全退出</a>
+                            <li><a href="${ctx}/login"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>安全退出</a>
                             </li>
                         </ul>
                     </li>
@@ -72,3 +71,5 @@
     <p class="lead blog-description">Stay hungry,Stay foolish</p>
     <hr>
 </div>
+</body>
+</html>

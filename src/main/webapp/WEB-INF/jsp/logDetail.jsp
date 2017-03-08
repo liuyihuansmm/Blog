@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="my" uri="/WEB-INF/tld/myTag.tld" %>
+<%@include file="common/tag.jsp"%>
 <html>
 <head>
     <title>日志详细</title>
@@ -21,7 +22,10 @@
             <div class="col-md-9">
                <div class="panel panel-default">
                    <div class="panel-heading">
-                       <h2 class="panel-title">${log.title}</h2>
+                       <h1 class="panel-title">${log.title}</h1>
+                       <div class="btn-group-sm" role="group" aria-label="...">
+                           <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove-sign">删除</span></button>
+                       </div>
                    </div>
                    <div class="panel-body">
                         <my:ByteToString content="${log.content}"></my:ByteToString>

@@ -48,23 +48,4 @@ public interface UserService {
 
     List<User> listFriends();
 
-    /**
-     *
-     * @param hostId
-     * @return
-     * 查询hostId用户所有的日志
-     */
-    //List<Log> queryAllLog(String hostId);
-
-    /**
-     *
-     * @param hostId
-     * @param title
-     * @param content
-     * @return
-     * 发表日志
-     */
-    //boolean publishLog(String hostId,String title,byte[] content);
-
-
 }

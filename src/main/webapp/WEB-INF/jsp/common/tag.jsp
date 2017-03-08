@@ -9,7 +9,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<script src="${ctx}/resources/js/jquery-1.11.1.min.js"></script>
-<script src="${ctx}/resources/js/bootstrap.js"></script>
-<link rel="stylesheet" href="${ctx}/resources/css/bootstrap.min.css">
+<!--Bootstrap-->
+<script src="${ctx}/resources/js/jquery-3.1.1.min.js"></script>
+<script src="${ctx}/resources/bootstrap3.3.7/js/bootstrap.js"></script>
+<script src="${ctx}/resources/bootstrap3.3.7/js/npm.js"></script>
+<link rel="stylesheet" href="${ctx}/resources/bootstrap3.3.7/css/bootstrap.css">
+<link rel="stylesheet" href="${ctx}/resources/bootstrap3.3.7/css/bootstrap-theme.css">
 <link rel="shortcut icon" href="${ctx}/resources/images/icon.png">

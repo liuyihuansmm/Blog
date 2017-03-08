@@ -20,6 +20,7 @@
     <script type="text/javascript" src="${ctx}/resources/ue/third-party/template.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="${ctx}/resources/ue/umeditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="${ctx}/resources/ue/umeditor.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${ctx}/resources/ue/umeditor.js"></script>
     <script type="text/javascript" src="${ctx}/resources/ue/lang/zh-cn/zh-cn.js"></script>
     <style type="text/css">
         h1{

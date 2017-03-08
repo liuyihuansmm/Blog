@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="common/tag.jsp" %>
 <%@ taglib prefix="my" uri="/WEB-INF/tld/myTag.tld" %>
 <html>
 <head>
@@ -26,7 +25,7 @@
         <c:otherwise>
             <div class="jumbotron">
                 <h2>${log.title}</h2>
-                <p><my:ByteToString content="${log.content}"/></p>
+                <p><my:ByteToString summary="${log.content}"/>...</p>
                 <p><a class="btn btn-primary btn-lg" href="${ctx}/log/${log.lid}" role="button">Read more</a></p>
             </div>
         </c:otherwise>

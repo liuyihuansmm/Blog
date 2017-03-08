@@ -80,35 +80,5 @@ public class UserServiceImpl implements UserService {
     public List<User> listFriends() {
         return null;
     }
-    /**
-     *
-     * @param hostId
-     * @return
-     * 返回hostId用户所有日志列表
-
-    public List<Log> queryAllLog(String hostId) {
-        List<Log> logList = logDao.queryAll(hostId);
-        return logList;
-    }
-
-    /**
-     *
-     * @param hostId
-     * @param title
-     * @param content
-     * @return
-     * 用户发表日志
-
-    public boolean  publishLog(String hostId, String title, byte[] content) {
-        int insertCount = logDao.addLog(hostId,title,content);
-        if(insertCount>0){
-            return true;
-        }
-        return  false;
-    }
-     */
-
-
-
 
 }

@@ -80,40 +80,4 @@ public class UserController {
        return "home";
     }
 
-    /*
-    @RequestMapping(value = "/logs",method = RequestMethod.GET)
-    public String logsUI(HttpSession session,Model model){
-        User u = (User) session.getAttribute("currentUser");
-        List<Log> logList = userService.queryAllLog(u.getUid());
-        model.addAttribute("logList",logList);
-        return "home";
-    }
-
-    /**
-     * 发表日志UI
-     * @return
-
-    @RequestMapping(value = "/log/publish")
-    public String publishLogUI(){
-        return "test";
-    }
-
-    @RequestMapping(value = "/log/publish/do",method = RequestMethod.POST)
-    public String publishLog(String title, @RequestParam("content") String strContent, HttpSession session){
-        User currentUser = (User)session.getAttribute("currentUser");
-        String hostId = currentUser.getUid();
-        byte[] content = new byte[0];
-        try {
-            content = strContent.getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        boolean pubFlag = userService.publishLog(hostId,title,content);
-        if (!pubFlag) {
-            logger.debug("日志发表失败!");
-            return "redirect:/logs";//TODO
-        }
-        return "redirect:/logs";
-    }
-       */
 }
