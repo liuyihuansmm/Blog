@@ -35,7 +35,37 @@
                 <div class="panel-body">
                     <my:ByteToString content="${log.content}"></my:ByteToString>
                 </div>
-                <div class="panel-footer">Panel footer</div>
+                <div class="panel-footer">
+                    <p class="panel-heading">查看评论</p>
+                    <c:forEach var="comment" items="${commentList}">
+                        <c:if test="${not empty comment.fromWho}">
+                            <div class="panel panel-default">
+                                <p class="panel-heading">
+                                        ${comment.fromWho.nickName}&nbsp;
+                                    <fmt:formatDate value="${comment.createTime}"
+                                                    pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>&nbsp;发表
+                                </p>
+                                <p class="panel-body">${comment.content}</p>
+                            </div>
+                        </c:if>
+                    </c:forEach>
+                    <div class="panel panel-default">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;发表评论</p>
+                        <div class="panel-body">
+                            <form action="${ctx}/log/${log.lid}/comments" method="post">
+                                <input type="hidden" name="fromid" value="${currentUser.uid}">
+                                <input type="hidden" name="toid" value="${log.owner.uid}">
+                                <input type="hidden" name="lid" value="${log.lid}">
+                                <textarea name="content" class="col-md-12">
+
+                                </textarea>
+                                <button id="subComment" type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-arrow-up">提交</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,7 +1,9 @@
 package org.cn.lyh.web;
 
 import org.cn.lyh.entity.Log;
+import org.cn.lyh.entity.LogComment;
 import org.cn.lyh.entity.User;
+import org.cn.lyh.service.LogCommentService;
 import org.cn.lyh.service.LogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,9 @@ public class LogController {
 
     @Autowired
     private LogService logService;
+
+    @Autowired
+    private LogCommentService logCommentService;
 
     @RequestMapping(value = "/logs",method = RequestMethod.GET)
     public String logsUI(HttpSession session, Model model){
@@ -71,7 +76,9 @@ public class LogController {
     @RequestMapping(value = "/log/{lid}",method = RequestMethod.GET)
     public String logDetail(@PathVariable("lid") Integer lid,Model model){
         Log log = logService.queryById(lid);
+        List<LogComment> commentList =  logCommentService.queryAll(lid);
         model.addAttribute("log",log);
+        model.addAttribute("commentList",commentList);
         return "logDetail";
     }
 

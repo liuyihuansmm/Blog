@@ -65,4 +65,8 @@ FOREIGN KEY(toid) REFERENCES user(uid)
 
 2.grant all on *.* to 'lyh'@'localhost';
 
-
+/*
+  2017-03-09
+  增加评论表logxcomment和日志的主外键关系
+ */
+1.alter table logxcomment add CONSTRAINT `logxcomment_ibfk_3` FOREIGN key(`lid`) REFERENCES `log`(`lid`);
