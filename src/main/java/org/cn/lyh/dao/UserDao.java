@@ -45,4 +45,13 @@ public interface UserDao {
      * @return
      */
     List<User> queryByName(@Param("nickName") String name);
+
+    /**
+     *
+     * @param innerId
+     * @return
+     * 根据内码查用户
+     */
+    User queryByInnerId(@Param("innderId") Integer innerId);
+
 }

@@ -8,13 +8,13 @@
 </head>
 <body>
 <div class="container">
-    <%@include file="head.jsp"%>
+    <%@include file="common/head.jsp"%>
     <div class="row">
         <div class="col-md-3">
-            <%@include file="navigate.jsp"%>
+            <%@include file="common/navigate.jsp"%>
         </div>
         <div class="col-md-9">
-            <%@include file="log.jsp"%>
+            <%@include file="log/log.jsp"%>
         </div>
     </div>
 </div>

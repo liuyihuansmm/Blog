@@ -36,4 +36,14 @@
          from user
          where nickname like concat('%',#{nickName},'%')
     </select>
+
+    <select id="queryByInnerId" resultType="User">
+        select uid,
+               innerid innerId,
+               nickname nickName,
+               email,
+               head_picture headPicture
+         from user
+          where innerid =#{innderId}
+    </select>
 </mapper>

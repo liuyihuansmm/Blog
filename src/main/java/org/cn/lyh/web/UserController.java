@@ -10,10 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
@@ -78,6 +75,17 @@ public class UserController {
        model.addAttribute("currentUser",user.getUser());
        model.addAttribute("isLoged",true);
        return "home";
+    }
+
+    /**
+     *
+     * @param innerId
+     * 点击日志评论者的昵称，跳转到其主页
+     */
+    @RequestMapping(value = "/user/{innerId}",method = RequestMethod.GET)
+    public void showHome(@PathVariable("innerId") Integer innerId,Model model){
+        User user = userService.queryByInnerId(innerId);
+        model.addAttribute("other",user);
     }
 
 }

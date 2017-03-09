@@ -30,6 +30,6 @@ public class LoginController {
              **/
         }
 
-        return "login";
+        return "/common/login";
     }
 }

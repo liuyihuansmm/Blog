@@ -7,17 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="my" uri="/WEB-INF/tld/myTag.tld" %>
-<%@include file="common/tag.jsp" %>
+<%@include file="../common/tag.jsp" %>
 <html>
 <head>
     <title>日志详细</title>
 </head>
 <body>
 <div class="container">
-    <%@include file="head.jsp" %>
+    <%@include file="../common/head.jsp" %>
     <div class="row">
         <div class="col-md-3">
-            <%@include file="navigate.jsp" %>
+            <%@include file="../common/navigate.jsp" %>
         </div>
         <div class="col-md-9">
             <div class="panel panel-default">
@@ -41,7 +41,7 @@
                         <c:if test="${not empty comment.fromWho}">
                             <div class="panel panel-default">
                                 <p class="panel-heading">
-                                        ${comment.fromWho.nickName}&nbsp;
+                                    <a href="${ctx}/user/${comment.fromWho.innerId}">${comment.fromWho.nickName}</a>&nbsp;
                                     <fmt:formatDate value="${comment.createTime}"
                                                     pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>&nbsp;发表
                                 </p>

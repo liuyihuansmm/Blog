@@ -72,6 +72,11 @@ public class UserServiceImpl implements UserService {
         return  userList;
     }
 
+    @Override
+    public User queryByInnerId(Integer innerId) {
+        return userDao.queryByInnerId(innerId);
+    }
+
     //下面两个接口，因为dao层未写好,暂时不考虑
     public boolean addFriend(String nickName) {
         return false;

@@ -43,6 +43,13 @@ public interface UserService {
      */
     List<User> search(String nickName);
 
+    /**
+     *
+     * @param innerId
+     * @return
+     */
+    User queryByInnerId(Integer innerId);
+
     //下面两个接口，因为dao层未写好,暂时不考虑
     boolean addFriend(String nickName);
 

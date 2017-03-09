@@ -45,7 +45,7 @@ public class LogController {
      */
     @RequestMapping(value = "/log/publish")
     public String publishLogUI(){
-        return "test";
+        return "/log/logEditUI";
     }
 
     @RequestMapping(value = "/log/publish/do",method = RequestMethod.POST)
@@ -79,7 +79,7 @@ public class LogController {
         List<LogComment> commentList =  logCommentService.queryAll(lid);
         model.addAttribute("log",log);
         model.addAttribute("commentList",commentList);
-        return "logDetail";
+        return "/log/logDetail";
     }
 
     /**

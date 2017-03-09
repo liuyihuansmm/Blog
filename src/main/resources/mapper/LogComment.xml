@@ -24,7 +24,6 @@
    -->
     <select id="getAll" resultType="LogComment">
         SELECT
-
           log.lid "log.lid",
           log.title "log.title",
           logxcomment.lgcommentid lgCommentId,
