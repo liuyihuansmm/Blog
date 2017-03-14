@@ -23,10 +23,10 @@
             </div>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <span class="label label-default">昵称</span>&nbsp;&nbsp;${currentUser.nickName}
+                    <span class="label label-default">昵称</span>&nbsp;&nbsp;${user.nickName}
                 </li>
                 <li class="list-group-item">
-                    <span class="label label-default">邮箱</span>&nbsp;&nbsp;${currentUser.email}
+                    <span class="label label-default">邮箱</span>&nbsp;&nbsp;${user.email}
                 </li>
             </ul>
         </div>

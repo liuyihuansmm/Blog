@@ -76,7 +76,9 @@ public class LogController {
     @RequestMapping(value = "/log/{lid}",method = RequestMethod.GET)
     public String logDetail(@PathVariable("lid") Integer lid,Model model){
         Log log = logService.queryById(lid);
+        User user = log.getOwner();
         List<LogComment> commentList =  logCommentService.queryAll(lid);
+        model.addAttribute("user",user);
         model.addAttribute("log",log);
         model.addAttribute("commentList",commentList);
         return "/log/logDetail";

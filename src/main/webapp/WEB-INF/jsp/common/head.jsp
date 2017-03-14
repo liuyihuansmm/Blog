@@ -26,15 +26,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Blog</a>
+                <a class="navbar-brand" href="${ctx}/user/${currentUser.innerId}">Blog</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页
+                    <li class="active"><a href="${ctx}/user/${user.innerId}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页
                         <span class="sr-only">(current)</span></a></li>
-                    <li><a href="${ctx}/logs"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>日志</a></li>
+                    <li><a href="${ctx}/user/${user.innerId}/logs"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>日志</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>说说</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-picture " aria-hidden="true"></span>相册</a></li>
                     <li class="dropdown">
@@ -67,7 +67,7 @@
     </div>
 </nav>
 <div class="blog-header">
-    <h1 class="blog-title">${currentUser.nickName}的博客</h1>
+    <h1 class="blog-title">${user.nickName}的博客</h1>
     <p class="lead blog-description">Stay hungry,Stay foolish</p>
     <hr>
 </div>

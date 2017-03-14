@@ -14,13 +14,18 @@
 <body>
 <div class="row">
     <div class="col-md-2 col-md-offset-10">
-        <button id="pubLog" type="button" class="btn btn-primary">写新文章</button>
+        <c:choose>
+            <c:when test="${currentUser.innerId == user.innerId}">
+                <button id="pubLog" type="button" class="btn btn-primary">写新文章</button>
+            </c:when>
+        </c:choose>
     </div>
 </div>
 <c:forEach var="log" items="${logList}">
     <c:choose>
         <c:when test="${empty log.lid}">
-            <h1>你还未发表任何文章哟~</h1>
+            <c:if test="v"><h1>你还未发表任何文章哟~</h1></c:if>
+            <c:if test="${currentUser.innerId != user.innerId}"><h1>他(她)还未发表任何文章哟~</h1></c:if>
         </c:when>
         <c:otherwise>
             <div class="jumbotron">
