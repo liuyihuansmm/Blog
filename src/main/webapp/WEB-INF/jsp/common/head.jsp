@@ -11,7 +11,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>博客系统</title>
-
+    <script type="text/javascript" src="${ctx}/resources/js/userJS.js"></script>
+    <style type="text/css">
+        .mouseOver {
+            background: #708090;
+            color: #FFFAFA;
+        }
+        .mouseOut {
+            background: #FFFAFA;
+            color: #000000;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -56,7 +66,7 @@
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="搜索好友">
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="搜索好友" onkeyup="userJS.getResult()" onfocus="userJS.getResult()" onblur="userJS.clearContent()" />
                     </div>
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"
                                                                         aria-hidden="true"></span>搜索
@@ -66,6 +76,13 @@
         </div><!-- /.container-fluid -->
     </div>
 </nav>
+<div id="popDiv" class="left-container">
+    <table id="name_table" class="table table-hover">
+        <tbody id="name_table_body">
+
+        </tbody>
+    </table>
+</div>
 <div class="blog-header">
     <h1 class="blog-title">${user.nickName}的博客</h1>
     <p class="lead blog-description">Stay hungry,Stay foolish</p>

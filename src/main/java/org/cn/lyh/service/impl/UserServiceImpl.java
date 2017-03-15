@@ -3,7 +3,6 @@ package org.cn.lyh.service.impl;
 import org.cn.lyh.dao.LogDao;
 import org.cn.lyh.dao.UserDao;
 import org.cn.lyh.dto.RegistUser;
-import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.User;
 import org.cn.lyh.service.UserService;
 import org.slf4j.Logger;
@@ -72,7 +71,7 @@ public class UserServiceImpl implements UserService {
         return  userList;
     }
 
-    @Override
+
     public User queryByInnerId(Integer innerId) {
         return userDao.queryByInnerId(innerId);
     }
