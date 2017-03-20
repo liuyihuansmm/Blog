@@ -1,6 +1,7 @@
 package org.cn.lyh.service.impl;
 
 import org.cn.lyh.dao.LogDao;
+import org.cn.lyh.dto.PageBean;
 import org.cn.lyh.entity.Log;
 import org.cn.lyh.service.LogService;
 import org.slf4j.Logger;
@@ -25,10 +26,10 @@ public class LogServiceImpl implements LogService {
      *
      * @param hostId
      * @return
-     * 查询用户id为hostId的所有日志
+     * 查询用户id为hostId的所有日志，加入分页
      */
-    public List<Log> queryAllLog(String hostId) {
-        List<Log> logList = logDao.queryAll(hostId);
+    public List<Log> queryAllLog(String hostId, PageBean page) {
+        List<Log> logList = logDao.queryAll(hostId,page);
         return logList;
     }
 
@@ -66,5 +67,9 @@ public class LogServiceImpl implements LogService {
      */
     public int deleteLog(Integer lid) {
         return logDao.deleteLog(lid);
+    }
+
+    public Integer count(String uid) {
+        return logDao.count(uid);
     }
 }

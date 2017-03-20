@@ -31,7 +31,7 @@
                log.content,
                log.create_time
         from user LEFT JOIN log on user.uid=log.hostid
-        where user.uid=#{hostid} order by log.create_time DESC
+        where user.uid=#{hostid} order by log.create_time DESC limit #{page.dbIndex},#{page.dbNum}
     </select>
 
     <select id="queryById" resultType="Log">
@@ -47,6 +47,10 @@
                log.create_time
         from log LEFT JOIN user on user.uid=log.hostid
         where log.lid=#{lid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from log where log.hostid=#{uid};
     </select>
 </mapper>
         

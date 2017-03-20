@@ -1,5 +1,6 @@
 package org.cn.lyh.web;
 
+import org.cn.lyh.dto.PageBean;
 import org.cn.lyh.dto.RegistUser;
 import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.User;
@@ -8,7 +9,6 @@ import org.cn.lyh.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by lyh on 17-3-1.
@@ -33,6 +34,8 @@ public class UserController {
 
     @Autowired
     private LogService logService;
+
+
     /**
      *
      * @param username
@@ -49,21 +52,31 @@ public class UserController {
 
         if (user!=null){
             httpSession.setAttribute("currentUser",user);
-            //List<Log> logList = logService.queryAllLog(user.getUid());
             model.addAttribute("currentUser",user);
             model.addAttribute("isLoged",true);
-            //model.addAttribute("logList",logList);
             return "redirect:/user/"+user.getInnerId();
         }
         return "redirect:/login";
     }
 
     @RequestMapping(value = {"/user/{innerId}","/user/{innerId}/logs"})
-    public  String homeUI(@PathVariable("innerId") Integer innerId,Model model){
+    public  String homeUI(@PathVariable("innerId") Integer innerId,Integer page, Model model){
+        PageBean pageBean = new PageBean(); //TODO
         User user = userService.queryByInnerId(innerId);
-        List<Log> logList = logService.queryAllLog(user.getUid());
+
+        Integer count = logService.count(user.getUid());
+        Pattern pattern = Pattern.compile("[0-9]+");
+        System.out.println(page);//TODO
+        if(page == null || !pattern.matcher(String.valueOf(page)).matches())
+            page = 1;
+        pageBean.setCurrentPage(page);
+        pageBean.setTotalCount(count);
+        System.out.println(page);//TODO
+
+        List<Log> logList = logService.queryAllLog(user.getUid(),pageBean);
         model.addAttribute("user",user);
         model.addAttribute("logList",logList);
+        model.addAttribute("pageBean",pageBean);
         return "home";
     }
 
@@ -108,5 +121,4 @@ public class UserController {
         }
         return  nameList;
     }
-
 }

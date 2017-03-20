@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="${ctx}/resources/css/page.css">
+    <script type="text/javascript" src="${ctx}/resources/js/pageBeanJS.js"></script>
 </head>
 <body>
 <div class="row">
@@ -36,6 +38,25 @@
         </c:otherwise>
     </c:choose>
 </c:forEach>
+<div class="row">
+    <form id="pageForm" method="get" action="${ctx}/user/${user.innerId}/logs">
+        <input type="hidden" name="page" id="currentPage"/>
+        <div class='page fix col-md-10 col-md-offset-1'>
+            共 <b>${pageBean.totalCount}</b> 条
+            <c:if test="${pageBean.currentPage != 1}">
+                <a href="javascript:pageBeanJS.changeCurrentPage(1)" class='first'>首页</a>
+                <a href="javascript:pageBeanJS.changeCurrentPage(${pageBean.currentPage-1})" class='pre'>上一页</a>
+            </c:if>
+            当前第<span>${pageBean.currentPage}/${pageBean.totalPage}</span>页
+            <c:if test="${pageBean.currentPage != pageBean.totalPage}">
+                <a href="javascript:pageBeanJS.changeCurrentPage(${pageBean.currentPage+1})" class='next'>下一页</a>
+                <a href="javascript:pageBeanJS.changeCurrentPage(${pageBean.totalPage})" class='last'>末页</a>
+            </c:if>
+            跳至&nbsp;<input id="currentPageText" type='text' value='1' class='allInput w28'/>&nbsp;页&nbsp;
+            <a href="javascript:pageBeanJS.changeCurrentPage($('#currentPageText').val())" class='go'>GO</a>
+        </div>
+    </form>
+</div>
 <script type="text/javascript" src="${ctx}/resources/js/logJS.js"></script>
 <script>
     $(function () {

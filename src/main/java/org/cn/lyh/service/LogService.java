@@ -1,5 +1,6 @@
 package org.cn.lyh.service;
 
+import org.cn.lyh.dto.PageBean;
 import org.cn.lyh.entity.Log;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface LogService {
      * @return
      * 查询hostId用户所有的日志
      */
-    List<Log> queryAllLog(String hostId);
+    List<Log> queryAllLog(String hostId, PageBean page);
 
     /**
      *
@@ -42,5 +43,14 @@ public interface LogService {
      * 删除日志
      */
     int deleteLog(Integer lid);
+
+    /**
+     *
+     * @param uid
+     * @return
+     * 查询uid下有多少日志，以便分页
+     */
+    Integer count(String uid);
+
 
 }

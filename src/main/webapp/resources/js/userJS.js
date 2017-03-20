@@ -56,18 +56,22 @@ var userJS={
 
             var tr = document.createElement("tr");
             var td = document.createElement("td");
+            td.setAttribute("border", "0");
+            td.setAttribute("bgcolor", "#FFFAFA");
             td.onclick=function () {
-                document.getElementById("nickname").innerHTML = td.innerHTML;
+                document.getElementById("name_table_body").value = td.innerHTML;
+            };
+            td.mouseOver = function() {
+                this.className = "mouseOver";
+            };
+            td.mouseOut = function() {
+                this.className = "mouseOut";
             };
             var text = document.createTextNode(textNode);
             td.appendChild(text);
             tr.appendChild(td);
             document.getElementById("name_table_body").appendChild(tr);
         }
-    },
-
-    serch:function () {
-        
     },
 
     setLocation:function () {

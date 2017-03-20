@@ -53,7 +53,7 @@ public class LogDaoTest {
 
     @Test
     public void queryAll() throws Exception {
-        List<Log> logList = logDao.queryAll("liuyihuan123");
+        List<Log> logList = logDao.queryAll("liuyihuan123",null);
         for (Log log:logList){
             logger.debug("结果:"+log);
         }

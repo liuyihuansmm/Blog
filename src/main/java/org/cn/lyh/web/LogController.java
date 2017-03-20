@@ -1,5 +1,6 @@
 package org.cn.lyh.web;
 
+import org.cn.lyh.dto.PageBean;
 import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.LogComment;
 import org.cn.lyh.entity.User;
@@ -31,20 +32,32 @@ public class LogController {
     @Autowired
     private LogCommentService logCommentService;
 
+    /***
+     *
+     * @param session
+     * @param model
+     * @return
+
     @RequestMapping(value = "/logs",method = RequestMethod.GET)
     public String logsUI(HttpSession session, Model model){
-        User u = (User) session.getAttribute("currentUser");
-        List<Log> logList = logService.queryAllLog(u.getUid());
+        User user = (User) session.getAttribute("currentUser");
+        PageBean page = new PageBean(); //TODO
+        Integer count = logService.count(user.getUid());
+        page.setTotalCount(count);
+        List<Log> logList = logService.queryAllLog(user.getUid(),page);
         model.addAttribute("logList",logList);
         return "home";
     }
+     */
 
     /**
      * 发表日志UI
      * @return
      */
     @RequestMapping(value = "/log/publish")
-    public String publishLogUI(){
+    public String publishLogUI(HttpSession session,Model model){
+        User currentUser = (User)session.getAttribute("currentUser");
+        model.addAttribute("user",currentUser);
         return "/log/logEditUI";
     }
 
@@ -61,9 +74,9 @@ public class LogController {
         boolean pubFlag = logService.publishLog(hostId,title,content);
         if (!pubFlag) {
             logger.debug("日志发表失败!");
-            return "redirect:/logs";//TODO
+            return "redirect:/user/"+currentUser.getInnerId()+"/logs";//TODO
         }
-        return "redirect:/logs";
+        return "redirect:/user/"+currentUser.getInnerId()+"/logs";
     }
 
     /**

@@ -1,6 +1,7 @@
 package org.cn.lyh.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.cn.lyh.dto.PageBean;
 import org.cn.lyh.entity.Log;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public interface LogDao {
      * @param hostId
      * @return
      */
-    List<Log> queryAll(@Param("hostid") String hostId);
+    List<Log> queryAll(@Param("hostid") String hostId, @Param("page") PageBean page);
 
     /**
      * 根据lid查询Log
@@ -48,4 +49,11 @@ public interface LogDao {
      * @return
      */
     Log queryById(@Param("lid") int lid);
+
+    /**
+     * 查询uid总共有多少日志，以便分页
+     * @param uid
+     * @return
+     */
+    Integer count(@Param("uid") String uid);
 }

@@ -66,7 +66,7 @@
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="搜索好友" onkeyup="userJS.getResult()" onfocus="userJS.getResult()" onblur="userJS.clearContent()" />
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="搜索好友" onkeyup="userJS.getResult()" onfocus="userJS.getResult()" onblur="userJS.clearContent()"/>
                     </div>
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"
                                                                         aria-hidden="true"></span>搜索
@@ -76,17 +76,23 @@
         </div><!-- /.container-fluid -->
     </div>
 </nav>
-<div id="popDiv" class="left-container">
-    <table id="name_table" class="table table-hover">
-        <tbody id="name_table_body">
+<div class="row">
+    <div class="col-md-5">
+        <div class="blog-header">
+            <h1 class="blog-title">${user.nickName}的博客</h1>
+            <p class="lead blog-description">Stay hungry,Stay foolish</p>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div id="popDiv" class="left-container">
+            <table id="name_table"  border="0" bgcolor="#FFFAFA" cellsapcing="0" cellpadding="0">
+                <tbody id="name_table_body">
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-<div class="blog-header">
-    <h1 class="blog-title">${user.nickName}的博客</h1>
-    <p class="lead blog-description">Stay hungry,Stay foolish</p>
-    <hr>
-</div>
+<hr>
 </body>
 </html>
