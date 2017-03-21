@@ -11,7 +11,14 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="${ctx}/resources/css/page.css">
+    <script type="text/javascript" src="${ctx}/resources/js/logJS.js"></script>
     <script type="text/javascript" src="${ctx}/resources/js/pageBeanJS.js"></script>
+    <script>
+        $(function () {
+            logJS.publishUI();
+            $("#pageDiv").hide();
+        });
+    </script>
 </head>
 <body>
 <div class="row">
@@ -26,7 +33,7 @@
 <c:forEach var="log" items="${logList}">
     <c:choose>
         <c:when test="${empty log.lid}">
-            <c:if test="v"><h1>你还未发表任何文章哟~</h1></c:if>
+            <c:if test="${currentUser.innerId == user.innerId}"><h1>你还未发表任何文章哟~</h1></c:if>
             <c:if test="${currentUser.innerId != user.innerId}"><h1>他(她)还未发表任何文章哟~</h1></c:if>
         </c:when>
         <c:otherwise>
@@ -35,10 +42,15 @@
                 <p><my:ByteToString summary="${log.content}"/>...</p>
                 <p><a class="btn btn-primary btn-lg" href="${ctx}/log/${log.lid}" role="button">Read more</a></p>
             </div>
+            <script>
+                $(function () {
+                    $("#pageDiv").show();
+                })
+            </script>
         </c:otherwise>
     </c:choose>
 </c:forEach>
-<div class="row">
+<div id="pageDiv" class="row">
     <form id="pageForm" method="get" action="${ctx}/user/${user.innerId}/logs">
         <input type="hidden" name="page" id="currentPage"/>
         <div class='page fix col-md-10 col-md-offset-1'>
@@ -57,11 +69,5 @@
         </div>
     </form>
 </div>
-<script type="text/javascript" src="${ctx}/resources/js/logJS.js"></script>
-<script>
-    $(function () {
-        logJS.publishUI();
-    });
-</script>
 </body>
 </html>

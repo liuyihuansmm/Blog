@@ -11,6 +11,20 @@ h3{
 color: #555;
 }
 
+a:link{
+	color:#000000;
+	text-decoration: none;
+}
+
+a:visited{
+	color:#000000;
+	text-decoration: none;
+}
+
+a:hover{
+	color:#000000;
+	text-decoration: none;
+}
 .form-box{
 	margin-top:35px;
 }

@@ -11,6 +11,22 @@
 <html>
 <head>
     <title>日志详细</title>
+    <style type="text/css">
+        a:link {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #000000;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -25,11 +41,15 @@
                     <h3 style="display: inline;">${log.title}</h3>
                     <p class="text-right" style="margin-bottom:1px;">
                         <fmt:formatDate value="${log.createTime}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>
-                        <button id="delLgBtn" class="btn btn-default btn-sm"><span
-                                class="glyphicon glyphicon-remove-sign">删除</span></button>
-                        <button id="comLgBtn" class="btn btn-default btn-sm"><span
-                                class="glyphicon glyphicon-comment">评论</span>
-                        </button>
+                        <c:if test="${currentUser.innerId == user.innerId}">
+                            <button id="delLgBtn" class="btn btn-default btn-sm"><span
+                                    class="glyphicon glyphicon-remove-sign">删除</span></button>
+                        </c:if>
+                        <a href="#content">
+                            <button id="comLgBtn" class="btn btn-default btn-sm"><span
+                                    class="glyphicon glyphicon-comment">评论</span>
+                            </button>
+                        </a>
                     </p>
                 </div>
                 <div class="panel-body">
@@ -51,12 +71,12 @@
                     </c:forEach>
                     <div class="panel panel-default">
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;发表评论</p>
-                        <div class="panel-body">
+                        <div id="pub" class="panel-body">
                             <form action="${ctx}/log/${log.lid}/comments" method="post">
                                 <input type="hidden" name="fromid" value="${currentUser.uid}">
                                 <input type="hidden" name="toid" value="${log.owner.uid}">
                                 <input type="hidden" name="lid" value="${log.lid}">
-                                <textarea name="content" class="col-md-12">
+                                <textarea id="content" name="content" class="col-md-12">
 
                                 </textarea>
                                 <button id="subComment" type="submit" class="btn btn-default btn-sm">

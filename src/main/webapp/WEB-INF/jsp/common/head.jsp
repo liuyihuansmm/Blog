@@ -76,6 +76,19 @@
         </div><!-- /.container-fluid -->
     </div>
 </nav>
+<div class="blog-header">
+    <h1 class="blog-title">${user.nickName}的博客</h1>
+    <p class="lead blog-description">Stay hungry,Stay foolish</p>
+</div>
+<div id="popDiv" class="left-container">
+    <table id="name_table" class="table table-hover">
+        <tbody id="name_table_body">
+
+        </tbody>
+    </table>
+</div>
+<hr>
+<!--
 <div class="row">
     <div class="col-md-5">
         <div class="blog-header">
@@ -85,7 +98,7 @@
     </div>
     <div class="col-md-7">
         <div id="popDiv" class="left-container">
-            <table id="name_table"  border="0" bgcolor="#FFFAFA" cellsapcing="0" cellpadding="0">
+            <table id="name_table" class="table table-hover">
                 <tbody id="name_table_body">
 
                 </tbody>
@@ -94,5 +107,7 @@
     </div>
 </div>
 <hr>
+-->
+
 </body>
 </html>

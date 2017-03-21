@@ -33,7 +33,6 @@ var userJS={
         url = encodeURI(url);
         url = encodeURI(url);
         xmlHttp.open('GET',url,true);
-        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlHttp.onreadystatechange = function () {
             if(xmlHttp.readyState==4){
                 if(xmlHttp.status == 200){
@@ -56,8 +55,6 @@ var userJS={
 
             var tr = document.createElement("tr");
             var td = document.createElement("td");
-            td.setAttribute("border", "0");
-            td.setAttribute("bgcolor", "#FFFAFA");
             td.onclick=function () {
                 document.getElementById("name_table_body").value = td.innerHTML;
             };
@@ -85,7 +82,6 @@ var userJS={
         popDiv.style.left=left+"px";
         popDiv.style.top=top+"px";
         popDiv.style.width=width+"px";
-
         document.getElementById("name_table").style.width=width+"px";
     },
 
