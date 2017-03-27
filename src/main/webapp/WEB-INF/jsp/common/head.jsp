@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="${ctx}/user/${user.innerId}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页
-                        <span class="sr-only">(current)</span></a></li>
+                        <span class="sr-only"></span></a></li>
                     <li><a href="${ctx}/user/${user.innerId}/logs"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>日志</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>说说</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-picture " aria-hidden="true"></span>相册</a></li>

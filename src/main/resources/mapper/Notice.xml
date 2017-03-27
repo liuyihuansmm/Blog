@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cn.lyh.dao.NoticeDao">
+    <insert id="addNotice">
+        insert into notice(hostid,content,url)VALUE (#{hostid},#{content},#{url})
+    </insert>
+
+    <update id="updateNotice">
+        update notice set status = 1 where nid = #{nic}
+    </update>
+
+    <select id="queryNotice"  resultType="Notice">
+        select * from notice
+        <where>
+          hostid=#{hostid}
+          <if test="status != null">
+          and status = #{status}
+          </if>
+        </where>
+    </select>
+</mapper>

@@ -6,6 +6,7 @@ import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.User;
 import org.cn.lyh.service.LogService;
 import org.cn.lyh.service.UserService;
+import org.cn.lyh.util.Uploader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,5 +121,31 @@ public class UserController {
             }
         }
         return  nameList;
+    }
+
+    /**
+     * 上传图片页面
+     * @param httpSession
+     * @param model
+     * @return
+     */
+    @RequestMapping("/user/{innerId}/picture")
+    public String picHeadUI(@PathVariable("innerId") Integer innerId, HttpSession httpSession,Model model){
+        User user = userService.queryByInnerId(innerId);
+        model.addAttribute("user",user);
+        return "/common/picUpload";
+    }
+
+    /**
+     * 上传头像处理逻辑
+     * @param innerId
+     * @return
+     */
+    @RequestMapping(value = "/user/{innerId}/headPicture",method = RequestMethod.POST)
+    public String uploadPic(@PathVariable("innerId") Integer innerId,HttpServletRequest request) throws Exception {
+        User user = userService.queryByInnerId(innerId);
+
+        //userService.addPicture(,innerId);
+        return "redirect:/user/"+user.getInnerId();
     }
 }

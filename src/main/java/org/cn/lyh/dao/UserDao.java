@@ -54,4 +54,12 @@ public interface UserDao {
      */
     User queryByInnerId(@Param("innderId") Integer innerId);
 
+    /**
+     * 根据登录账号查User
+     * @param uid
+     * @return
+     */
+    User queryById(@Param("uid") String uid);
+
+    int addPic(@Param("url") String url,@Param("innerid") Integer innerid);
 }

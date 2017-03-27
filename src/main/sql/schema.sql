@@ -70,3 +70,19 @@ FOREIGN KEY(toid) REFERENCES user(uid)
   增加评论表logxcomment和日志的主外键关系
  */
 1.alter table logxcomment add CONSTRAINT `logxcomment_ibfk_3` FOREIGN key(`lid`) REFERENCES `log`(`lid`);
+
+/**
+  2017-03-22
+  新增系统通知表notice
+ */
+create table notice(
+`nid` INT NOT NULL AUTO_INCREMENT COMMENT '通知主键',
+`hostid` INT COMMENT '被通知的用户',
+`status` INT default 0 COMMENT '通知状态:0 未读,1 已读',
+`content` varchar(200) COMMENT '通知内容',
+`url` varchar(200) COMMENT '跳转到对应发生的位置',
+`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
+primary key(nid),
+FOREIGN KEY(hostid) REFERENCES user(innerid),
+KEY idx_notice_createtime(create_time)
+)ENGINE = INNODB AUTO_INCREMENT 1 DEFAULT CHARSET=UTF8 COMMENT '系统通知表';

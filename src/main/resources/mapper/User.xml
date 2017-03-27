@@ -46,4 +46,19 @@
          from user
           where innerid =#{innderId}
     </select>
+
+    <select id="queryById" resultType="User">
+        select uid,
+               innerid innerId,
+               nickname nickName,
+               email,
+               head_picture headPicture
+         from user
+          where uid =#{uid}
+    </select>
+
+    <insert id="addPic">
+        update user set head_picture = #{url}
+        where innerid = #{innerid}
+    </insert>
 </mapper>

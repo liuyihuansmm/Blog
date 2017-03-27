@@ -74,7 +74,7 @@
                         <div id="pub" class="panel-body">
                             <form action="${ctx}/log/${log.lid}/comments" method="post">
                                 <input type="hidden" name="fromid" value="${currentUser.uid}">
-                                <input type="hidden" name="toid" value="${log.owner.uid}">
+                                <input type="hidden" name="toid" value="${user.uid}">
                                 <input type="hidden" name="lid" value="${log.lid}">
                                 <textarea id="content" name="content" class="col-md-12">
 

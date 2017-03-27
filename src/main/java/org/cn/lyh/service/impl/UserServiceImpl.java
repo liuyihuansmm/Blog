@@ -76,6 +76,16 @@ public class UserServiceImpl implements UserService {
         return userDao.queryByInnerId(innerId);
     }
 
+    @Override
+    public User queryById(String uid) {
+        return userDao.queryById(uid);
+    }
+
+    @Override
+    public boolean addPicture(String url, Integer innerid) {
+        return userDao.addPic(url,innerid)==1?true:false;
+    }
+
     //下面两个接口，因为dao层未写好,暂时不考虑
     public boolean addFriend(String nickName) {
         return false;

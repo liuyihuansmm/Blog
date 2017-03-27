@@ -50,6 +50,15 @@ public interface UserService {
      */
     User queryByInnerId(Integer innerId);
 
+    /**
+     * 根据账号uid查User
+     * @param uid
+     * @return
+     */
+    User queryById(String uid);
+
+    boolean addPicture(String url,Integer innerid);
+
     //下面两个接口，因为dao层未写好,暂时不考虑
     boolean addFriend(String nickName);
 
