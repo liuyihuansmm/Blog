@@ -6,6 +6,7 @@ import org.cn.lyh.entity.Log;
 import org.cn.lyh.entity.User;
 import org.cn.lyh.service.LogService;
 import org.cn.lyh.service.UserService;
+import org.cn.lyh.util.Upload;
 import org.cn.lyh.util.Uploader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -144,8 +145,9 @@ public class UserController {
     @RequestMapping(value = "/user/{innerId}/headPicture",method = RequestMethod.POST)
     public String uploadPic(@PathVariable("innerId") Integer innerId,HttpServletRequest request) throws Exception {
         User user = userService.queryByInnerId(innerId);
-
-        //userService.addPicture(,innerId);
+        Upload load = new Upload(request);
+        String picUrl = load.upload();
+        userService.addPicture(picUrl,innerId);
         return "redirect:/user/"+user.getInnerId();
     }
 }

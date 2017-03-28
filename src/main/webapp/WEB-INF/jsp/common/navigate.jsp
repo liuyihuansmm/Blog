@@ -16,16 +16,18 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 col-xs-12">
+                    <a href="${ctx}/user/${user.innerId}/picture" class="thumbnail">
                     <c:choose>
                         <c:when test="${user.headPicture == null}">
-                            <a href="${ctx}/user/${user.innerId}/picture" class="thumbnail">
+
                                 点此上传头像
-                            </a>
+
                         </c:when>
                         <c:otherwise>
-                            <img src="${ctx}/${user.headPicture}">
+                                <img src="${ctx}/${user.headPicture}">
                         </c:otherwise>
                     </c:choose>
+                    </a>
                 </div>
             </div>
             <ul class="list-group">

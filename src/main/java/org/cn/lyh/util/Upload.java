@@ -18,13 +18,27 @@ public class Upload {
 
     private HttpServletRequest request;
 
+    private String realPath ;
+
+    private String savePath; //
+
+    private String relaPath ="/resources/upload";
+
+    public Upload(HttpServletRequest request){
+        this.request = request;
+        this.realPath =request.getSession().getServletContext().getRealPath("/");
+        this.savePath = getFolder();
+    }
 
 
-    public void upload(){
+    public String upload(){
+
+        String url = "";
+
         boolean isMultipart = ServletFileUpload.isMultipartContent(this.request);
         if (!isMultipart) {
             //未包含文件上传域
-            return;
+            return null;
         }
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setSizeThreshold(20*1024); //设置内存中允许存储的字节数
@@ -58,17 +72,27 @@ public class Upload {
                     continue;
                 }
 
-                String justFileName = name.substring(name.lastIndexOf("\\")+1,name.length());
-                File saveFile = new File("存放地址");
+                String justFileName = name.substring(name.lastIndexOf(File.separator)+1,name.length());
+
+                File saveFile = new File(savePath+"/"+justFileName);
 
                 try {
                     fileItem.write(saveFile);
+                    url=relaPath+"/"+justFileName;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
+        return  url;
     }
 
+    private String getFolder(){
+        File dir = new File(this.realPath+relaPath);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+        return this.realPath+relaPath;
+    }
 
 }
